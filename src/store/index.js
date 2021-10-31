@@ -1,6 +1,7 @@
 import {createStore, combineReducers} from "redux";
 import {countReducer} from './countReducer';
 import {customerReducer} from './customerReducer';
+import {composeWithDevTools} from 'redux-devtools-extension';
 
 const rootReducer = combineReducers ({
     count: countReducer,
@@ -9,6 +10,4 @@ const rootReducer = combineReducers ({
 )
 
 
-const store = createStore(rootReducer);
-
-export default store;
+export const store = createStore(rootReducer, composeWithDevTools());
