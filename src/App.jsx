@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { addCustomerAction, removeCustomerAction } from './store/customerReducer';
 import './App.css';
+import { decCounterAction, incCounterAction } from './store/countReducer';
 
 const App = () => {
   
@@ -10,11 +12,11 @@ const App = () => {
   console.log(customers);
    
   const increment = () => {
-    dispatch ({type: 'INC_COUNT', payload: 1})
+    dispatch (incCounterAction(1))
   }
 
   const decrement = () => {
-    dispatch ({type: 'DEC_COUNT', payload: 1})
+    dispatch (decCounterAction(1))
   }
 
   const addCustomer = (name) => {
@@ -24,11 +26,11 @@ const App = () => {
       id: Date.now(),
     }
 
-    dispatch({type: 'ADD_CUSTOMER', payload: customer})
+    dispatch(addCustomerAction(customer))
   }
 
   const removeCustomer = (customer) => {
-    dispatch ({type: 'REMOVE_CUSTOMER', payload: customer.id})
+    dispatch (removeCustomerAction(customer.id))
   }
  
   return (
