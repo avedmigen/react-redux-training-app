@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addCustomerAction, removeCustomerAction } from './store/customerReducer';
 import './App.css';
 import { decCounterAction, incCounterAction } from './store/countReducer';
+import { fetchCustomers } from './asyncAction/customers';
 
 const App = () => {
   
@@ -40,6 +41,7 @@ const App = () => {
       <button onClick={decrement}>Минус</button>
 
       <button onClick={() => addCustomer(prompt())}>Добавить клиента.</button>
+      <button onClick={() => dispatch(fetchCustomers())}>Получить клиентов из базы.</button>
 
       
 
